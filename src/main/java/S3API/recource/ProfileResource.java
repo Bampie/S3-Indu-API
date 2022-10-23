@@ -23,12 +23,12 @@ public class ProfileResource {
     }
 
     @GET
-    public List<Profile> allStudents() {
+    public List<Profile> allProfiles() {
         return profileService.allProfiles();
     }
 
     @POST
-    public Response addStudent(Profile profile) {
+    public Response addProfile(Profile profile) {
         Profile profileWihtId = profileService.addProfile(profile);
         return Response.created(URI.create("/api/profiles/" + profileWihtId.getId())).build();
     }
