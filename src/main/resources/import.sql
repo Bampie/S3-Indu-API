@@ -1,0 +1,10 @@
+-- INSERT INTO public.profile(id, delivery_time, description, equipment, experience, name, price)
+-- 	VALUES ("12345678912345", 10, 'Its my passion', 'Babolat electric stringer', '+9years of stringing', 'Jim Aarts', 19.95);
+-- INSERT INTO public.profile(id, delivery_time, description, equipment, experience, name, price)
+-- 	VALUES ("76543578935734", 1, 'I like to string', 'Yonex stringer', '+9years of stringing for myself', 'Steve Pilmyer', 12.95);
+-- INSERT INTO public.profile(id, delivery_time, description, equipment, experience, name, price)
+-- 	VALUES ("17485973657418", 1, 'I like to string', 'Yonex stringer', '+4 years of stringing on the tour', 'Baptist Onderdonck', 14.95);
+-- INSERT INTO public.profile(id, delivery_time, description, equipment, experience, name, price)
+-- 	VALUES ("11148709436174", 5, 'cheap but no strings', 'Yonex electric stringer', '+8years of stringing', 'XQC', 10);
+-- INSERT INTO public.profile(id, delivery_time, description, equipment, experience, name, price)
+-- 	VALUES ("22223478192063", 3, 'All inclusive', 'Yonex stringer', '+2years of stringing', 'Willem-Jan van Hulst', 25.90);
