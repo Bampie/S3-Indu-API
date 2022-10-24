@@ -15,9 +15,6 @@ public class ProfileService {
     @Inject
     ProfileRepository profileRepository;
 
-    public ProfileService() {
-    }
-
     public List<Profile> allProfiles() {
         return profileRepository.listAll();
     }
@@ -27,8 +24,12 @@ public class ProfileService {
         return profile;
     }
 
-    public Profile GetProfileById(UUID id) {
+    public Profile getProfileById(UUID id) {
         Profile profile = profileRepository.findById(id);
         return profile;
+    }
+
+    public void deleteProfile(UUID id) {
+        profileRepository.deleteById(id);
     }
 }

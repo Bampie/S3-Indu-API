@@ -12,8 +12,6 @@ import javax.persistence.OneToMany;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
-//import io.quarkus.hibernate.orm.panache.PanacheEntity;
-
 @Entity
 public class Profile extends PanacheEntityBase {
     @Id
@@ -25,6 +23,7 @@ public class Profile extends PanacheEntityBase {
     private String equipment;
     private String experience;
     private Double price;
+    private boolean sellerProfile;
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Sale> sales;
@@ -38,13 +37,14 @@ public class Profile extends PanacheEntityBase {
     }
 
     public Profile(String name, String description, int delivery_Time, String equipment, String experience,
-            double price, List<Sale> sales) {
+            Double price, boolean sellerProfile, List<Sale> sales) {
         this.name = name;
         this.description = description;
         this.delivery_Time = delivery_Time;
         this.equipment = equipment;
         this.experience = experience;
         this.price = price;
+        this.sellerProfile = sellerProfile;
         this.sales = sales;
     }
 
@@ -67,6 +67,10 @@ public class Profile extends PanacheEntityBase {
 
     public String getexperience() {
         return experience;
+    }
+
+    public boolean isSellerProfile() {
+        return sellerProfile;
     }
 
     public double getPrice() {
@@ -96,5 +100,9 @@ public class Profile extends PanacheEntityBase {
 
     public void setPrice(double prive) {
         this.price = prive;
+    }
+
+    public void setSellerProfile(boolean sellerProfile) {
+        this.sellerProfile = sellerProfile;
     }
 }

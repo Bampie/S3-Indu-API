@@ -17,7 +17,7 @@ public class Sale extends PanacheEntityBase {
     private UUID salesUuid;
     private String title;
     private String description;
-    private Number price;
+    private double price;
     private Date AankoopDatum;
 
     @ManyToOne
@@ -47,7 +47,7 @@ public class Sale extends PanacheEntityBase {
         return price;
     }
 
-    public void setPrice(Number price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

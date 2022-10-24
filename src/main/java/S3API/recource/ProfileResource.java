@@ -19,9 +19,6 @@ public class ProfileResource {
     @Inject
     private ProfileService profileService;
 
-    public ProfileResource() {
-    }
-
     @GET
     public List<Profile> allProfiles() {
         return profileService.allProfiles();
@@ -36,7 +33,7 @@ public class ProfileResource {
     @Path("/{id}")
     @GET
     public Profile GetProfileById(UUID id) {
-        Profile profile = profileService.GetProfileById(id);
+        Profile profile = profileService.getProfileById(id);
         return profile;
     }
 }
