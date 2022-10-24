@@ -17,7 +17,7 @@ import S3API.service.ProfileService;
 public class ProfileResource {
 
     @Inject
-    private ProfileService profileService;
+    ProfileService profileService;
 
     @GET
     public List<Profile> allProfiles() {

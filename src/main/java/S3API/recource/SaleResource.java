@@ -15,7 +15,7 @@ import S3API.service.SaleService;
 public class SaleResource {
 
     @Inject
-    private SaleService saleService;
+    SaleService saleService;
 
     @Path("/profileId/{id}")
     @GET
