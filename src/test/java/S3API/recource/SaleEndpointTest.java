@@ -1,4 +1,4 @@
-package S3API;
+package S3API.recource;
 
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
