@@ -14,14 +14,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3 
+    
     - name: Setup PostgreSQL
       uses: Harmon758/postgresql-action@v1.0.0
       with:
         postgresql version: latest
-        postgresql db: S3-School
-        postgresql user: PostgreSQL
-        postgresql password: root
+        postgresql db: S3-Indu
+        postgresql user: postgres
+        postgresql password: postgrespw
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
