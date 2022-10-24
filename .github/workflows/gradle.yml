@@ -18,7 +18,6 @@ jobs:
     - name: Setup PostgreSQL
       uses: Harmon758/postgresql-action@v1.0.0
       with:
-        postgresql version: latest
         postgresql db: S3-School
         postgresql user: PostgreSQL
         postgresql password: root
