@@ -1,6 +1,7 @@
 package S3API.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -31,5 +32,16 @@ public class ProfileService {
 
     public void deleteProfile(UUID id) {
         profileRepository.deleteById(id);
+    }
+
+    public boolean checkForId(UUID id) {
+        Optional<Profile> profile = profileRepository.findByIdOptional(id);
+        boolean isProfile;
+        if (profile != null) {
+            isProfile = true;
+        } else {
+            isProfile = false;
+        }
+        return isProfile;
     }
 }

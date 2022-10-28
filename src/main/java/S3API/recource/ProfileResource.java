@@ -36,4 +36,11 @@ public class ProfileResource {
         Profile profile = profileService.getProfileById(id);
         return profile;
     }
+
+    @Path("/check/{id}")
+    @GET
+    public boolean idInUse(UUID id) {
+        boolean foundId = profileService.checkForId(id);
+        return foundId;
+    }
 }
