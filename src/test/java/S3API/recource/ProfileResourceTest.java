@@ -2,8 +2,8 @@ package S3API.recource;
 
 import org.junit.jupiter.api.Test;
 
-// import static io.restassured.RestAssured.given;
-// import static org.hamcrest.CoreMatchers.is;
+import static io.restassured.RestAssured.given;
+//import static org.hamcrest.CoreMatchers.is;
 
 public class ProfileResourceTest {
     @Test
@@ -16,11 +16,11 @@ public class ProfileResourceTest {
 
     }
 
-    // @Test
-    // void testAllProfiles() {
-    // given()
-    // .when().get("/api/profiles")
-    // .then()
-    // .statusCode(200);
-    // }
+    @Test
+    void testAllProfiles() {
+        given()
+                .when().get("/api/profiles")
+                .then()
+                .statusCode(200);
+    }
 }

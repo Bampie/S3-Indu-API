@@ -2,7 +2,6 @@ package S3API.recource;
 
 import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -32,14 +31,14 @@ public class ProfileResource {
 
     @Path("/{id}")
     @GET
-    public Profile GetProfileById(UUID id) {
+    public Profile GetProfileById(String id) {
         Profile profile = profileService.getProfileById(id);
         return profile;
     }
 
     @Path("/check/{id}")
     @GET
-    public boolean idInUse(UUID id) {
+    public boolean idInUse(String id) {
         boolean foundId = profileService.checkForId(id);
         return foundId;
     }

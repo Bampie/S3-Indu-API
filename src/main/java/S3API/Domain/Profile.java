@@ -1,12 +1,10 @@
 package S3API.Domain;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,8 +13,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Entity
 public class Profile extends PanacheEntityBase {
     @Id
-    @GeneratedValue(generator = "UUID")
-    private UUID profileUuid;
+    private String profileId;
     private String name;
     private String description;
     private int delivery_Time;
@@ -28,16 +25,24 @@ public class Profile extends PanacheEntityBase {
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Sale> sales;
 
-    public UUID getId() {
-        return profileUuid;
+    public String getId() {
+        return profileId;
     }
 
     // constructoren:
     public Profile() {
     }
 
-    public Profile(String name, String description, int delivery_Time, String equipment, String experience,
+    public Profile(String profileId, int delivery_Time, boolean sellerProfile) {
+        this.profileId = profileId;
+        this.delivery_Time = delivery_Time;
+        this.sellerProfile = sellerProfile;
+    }
+
+    public Profile(String profileId, String name, String description, int delivery_Time, String equipment,
+            String experience,
             Double price, boolean sellerProfile, List<Sale> sales) {
+        this.profileId = profileId;
         this.name = name;
         this.description = description;
         this.delivery_Time = delivery_Time;

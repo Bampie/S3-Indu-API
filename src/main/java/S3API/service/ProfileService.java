@@ -1,8 +1,8 @@
 package S3API.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,7 +17,16 @@ public class ProfileService {
     ProfileRepository profileRepository;
 
     public List<Profile> allProfiles() {
-        return profileRepository.listAll();
+        List<Profile> allProfiles = profileRepository.listAll();
+        List<Profile> allSellers = new ArrayList<Profile>();
+
+        for (Profile profile : allProfiles) {
+            boolean isProfileSeller = profile.isSellerProfile();
+            if (isProfileSeller == true) {
+                allSellers.add(profile);
+            }
+        }
+        return allSellers;
     }
 
     public Profile addProfile(Profile profile) {
@@ -25,23 +34,18 @@ public class ProfileService {
         return profile;
     }
 
-    public Profile getProfileById(UUID id) {
+    public Profile getProfileById(String id) {
         Profile profile = profileRepository.findById(id);
         return profile;
     }
 
-    public void deleteProfile(UUID id) {
+    public void deleteProfile(String id) {
         profileRepository.deleteById(id);
     }
 
-    public boolean checkForId(UUID id) {
+    public boolean checkForId(String id) {
         Optional<Profile> profile = profileRepository.findByIdOptional(id);
-        boolean isProfile;
-        if (profile != null) {
-            isProfile = true;
-        } else {
-            isProfile = false;
-        }
+        boolean isProfile = profile.isPresent();
         return isProfile;
     }
 }
