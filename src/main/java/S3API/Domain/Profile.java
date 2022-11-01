@@ -62,6 +62,10 @@ public class Profile extends PanacheEntityBase {
     }
 
     // getter:
+    public UUID getProfileId() {
+        return profileId;
+    }
+
     public String getName() {
         return name;
     }
