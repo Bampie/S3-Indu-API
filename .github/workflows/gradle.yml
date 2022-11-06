@@ -24,4 +24,8 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-      
+    - name: Build and push Docker images
+      uses: docker/build-push-action@latest
+      with:
+    # List of a customs host-to-IP mapping (e.g., docker:10.180.0.1)
+        add-hosts: 127.0.0.1
