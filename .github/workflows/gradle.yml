@@ -25,6 +25,4 @@ jobs:
       with:
         arguments: build
     - name: push to docker
-      run: docker build -f src/main/docker/Dockerfile.jvm -t quarkus/quarkus-api-s3-jvm .
-    - name: run docker
-      run: docker run -i --rm -p 8081:8080 quarkus/quarkus-api-s3-jvm
+      run: docker push baptisto/s3-api-test:tagname
