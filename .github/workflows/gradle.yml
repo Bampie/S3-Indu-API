@@ -25,4 +25,4 @@ jobs:
       with:
         arguments: build
     - name: push to docker
-      run: docker push baptisto/s3-api-test:tagname
+      run: docker push --rm -t s3-application-vue .
