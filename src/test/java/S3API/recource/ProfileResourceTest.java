@@ -2,7 +2,7 @@ package S3API.recource;
 
 import org.junit.jupiter.api.Test;
 
-// import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 // import static org.hamcrest.CoreMatchers.is;
 
 public class ProfileResourceTest {
@@ -27,27 +27,27 @@ public class ProfileResourceTest {
     // .statusCode(200);
     // }
 
-    // @Test
-    // void testCheckForIdGoodId() {
-    // given()
-    // .when().get("/api/profiles/check/auth0|634e54f55bdae0d184bedc37")
-    // .then()
-    // .equals(true);
-    // }
+    @Test
+    void testCheckForIdGoodId() {
+        given()
+                .when().get("/api/profiles/check/auth0|634e54f55bdae0d184bedc37")
+                .then()
+                .equals(true);
+    }
 
-    // @Test
-    // void testCheckForIdWrongId() {
-    // given()
-    // .when().get("/api/profiles/check/auth0&up4f51ll5bgfe6d004bed")
-    // .then()
-    // .equals(false);
-    // }
+    @Test
+    void testCheckForIdWrongId() {
+        given()
+                .when().get("/api/profiles/check/auth0&up4f51ll5bgfe6d004bed")
+                .then()
+                .equals(false);
+    }
 
-    // @Test
-    // void testDeleteProfileUnknownID() {
-    // given()
-    // .when().delete("/api/profiles/delete/thisIsAUnknownId")
-    // .then()
-    // .statusCode(403);
-    // }
+    @Test
+    void testDeleteProfileUnknownID() {
+        given()
+                .when().delete("/api/profiles/delete/thisIsAUnknownId")
+                .then()
+                .statusCode(403);
+    }
 }
