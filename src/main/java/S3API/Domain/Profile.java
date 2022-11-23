@@ -32,8 +32,6 @@ public class Profile extends PanacheEntityBase {
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Sale> sales;
 
-    
-
     // constructoren:
     public Profile() {
     }
@@ -63,7 +61,7 @@ public class Profile extends PanacheEntityBase {
     public UUID getId() {
         return profileId;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -109,8 +107,8 @@ public class Profile extends PanacheEntityBase {
         this.description = description;
     }
 
-    public void setDeliveryTime(int delivery_Time) {
-        this.deliveryTime = delivery_Time;
+    public void setDeliveryTime(int deliveryTime) {
+        this.deliveryTime = deliveryTime;
     }
 
     public void setequipment(String equipment) {

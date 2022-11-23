@@ -15,6 +15,7 @@ public class ProfileService {
 
     @Inject
     ProfileRepository profileRepository;
+    String idColumn = "auth0Id";
 
     public List<Profile> allProfiles() {
         List<Profile> allProfiles = profileRepository.listAll();
@@ -34,16 +35,16 @@ public class ProfileService {
     }
 
     public Profile getProfileById(String id) {
-        return profileRepository.find("auth0Id", id).firstResult();
+        return profileRepository.find(idColumn, id).firstResult();
     }
 
     public void deleteProfile(String id) {
-        profileRepository.find("auth0Id", id).firstResult().delete();
+        profileRepository.find(idColumn, id).firstResult().delete();
     }
 
     public boolean checkForId(String id) {
         boolean isProfile = true;
-        Profile profile = profileRepository.find("auth0Id", id).firstResult();
+        Profile profile = profileRepository.find(idColumn, id).firstResult();
         if (profile == null) {
             isProfile = false;
         }
@@ -51,7 +52,7 @@ public class ProfileService {
     }
 
     public void editProfile(Profile newProfile) {
-        Profile updatingProfile = profileRepository.find("auth0Id", newProfile.getAuth0Id()).firstResult();
+        Profile updatingProfile = profileRepository.find(idColumn, newProfile.getAuth0Id()).firstResult();
 
         if (updatingProfile == null) {
             throw new NotFoundException();

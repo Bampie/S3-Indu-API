@@ -50,9 +50,8 @@ public class ProfileResource {
 
     @Path("/{id}")
     @GET
-    public Profile GetProfileById(String id) {
-        Profile profile = profileService.getProfileById(id);
-        return profile;
+    public Profile getProfileById(String id) {
+        return profileService.getProfileById(id);
     }
 
     @Path("/check/{id}")
