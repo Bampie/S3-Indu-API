@@ -1,4 +1,4 @@
-package S3API.Domain;
+package S3API.domain;
 
 import java.sql.Date;
 import java.util.UUID;
@@ -18,7 +18,7 @@ public class Sale extends PanacheEntityBase {
     private String title;
     private String description;
     private double price;
-    private Date AankoopDatum;
+    private Date aankoopDatum;
 
     @ManyToOne
     private Profile profile;
@@ -52,10 +52,10 @@ public class Sale extends PanacheEntityBase {
     }
 
     public Date getAankoopDatum() {
-        return AankoopDatum;
+        return aankoopDatum;
     }
 
-    public void setAankoopDatum(Date aankoopDatum) {
-        AankoopDatum = aankoopDatum;
+    public void setAankoopDatum(Date aankoopDatum2) {
+        aankoopDatum = aankoopDatum2;
     }
 }

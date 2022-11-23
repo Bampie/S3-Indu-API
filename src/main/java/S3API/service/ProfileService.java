@@ -7,7 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;
 
-import S3API.Domain.Profile;
+import S3API.domain.Profile;
 import S3API.repository.ProfileRepository;
 
 @ApplicationScoped
@@ -59,7 +59,7 @@ public class ProfileService {
         }
         updatingProfile.setName(newProfile.getName());
         updatingProfile.setDescription(newProfile.getDescription());
-        updatingProfile.setDelivery_Time(newProfile.getDelivery_Time());
+        updatingProfile.setDeliveryTime(newProfile.getDeliveryTime());
         updatingProfile.setPrice(newProfile.getPrice());
         updatingProfile.setSellerProfile(newProfile.getSellerProfile());
         updatingProfile.setequipment(newProfile.getEquipment());

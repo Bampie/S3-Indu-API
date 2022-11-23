@@ -8,7 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-import S3API.Domain.Sale;
+import S3API.domain.Sale;
 import S3API.service.SaleService;
 
 @Path("/api/sale")

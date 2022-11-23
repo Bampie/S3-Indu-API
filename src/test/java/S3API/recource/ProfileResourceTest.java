@@ -12,11 +12,6 @@ import static org.hamcrest.CoreMatchers.is;
 @Tag("integration")
 public class ProfileResourceTest {
     @Test
-    void testGetProfileById() {
-
-    }
-
-    @Test
     void testAddProfile() {
         given()
                 .when().post("/api/profiles")

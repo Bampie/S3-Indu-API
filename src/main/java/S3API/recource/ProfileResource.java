@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
-import S3API.Domain.Profile;
+import S3API.domain.Profile;
 import S3API.service.ProfileService;
 import io.vertx.core.json.JsonObject;
 

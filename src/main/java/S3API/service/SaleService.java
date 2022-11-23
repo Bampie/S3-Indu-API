@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import S3API.Domain.Sale;
+import S3API.domain.Sale;
 
 @ApplicationScoped
 public class SaleService {

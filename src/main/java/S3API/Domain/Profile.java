@@ -1,4 +1,4 @@
-package S3API.Domain;
+package S3API.domain;
 
 import java.util.List;
 import java.util.UUID;
@@ -40,20 +40,20 @@ public class Profile extends PanacheEntityBase {
     public Profile() {
     }
 
-    public Profile(String auth0Id, int delivery_Time, Double price, boolean sellerProfile) {
+    public Profile(String auth0Id, int deliveryTime, Double price, boolean sellerProfile) {
         this.auth0Id = auth0Id;
-        this.deliveryTime = delivery_Time;
+        this.deliveryTime = deliveryTime;
         this.price = price;
         this.sellerProfile = sellerProfile;
     }
 
-    public Profile(UUID profileId, String name, String description, int delivery_Time, String equipment,
+    public Profile(UUID profileId, String name, String description, int deliveryTime, String equipment,
             String experience,
             Double price, boolean sellerProfile, List<Sale> sales) {
         this.profileId = profileId;
         this.name = name;
         this.description = description;
-        this.deliveryTime = delivery_Time;
+        this.deliveryTime = deliveryTime;
         this.equipment = equipment;
         this.experience = experience;
         this.price = price;
@@ -74,7 +74,7 @@ public class Profile extends PanacheEntityBase {
         return description;
     }
 
-    public int getDelivery_Time() {
+    public int getDeliveryTime() {
         return deliveryTime;
     }
 
@@ -111,7 +111,7 @@ public class Profile extends PanacheEntityBase {
         this.description = description;
     }
 
-    public void setDelivery_Time(int delivery_Time) {
+    public void setDeliveryTime(int delivery_Time) {
         this.deliveryTime = delivery_Time;
     }
 
