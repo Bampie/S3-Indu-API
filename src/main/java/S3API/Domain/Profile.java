@@ -23,7 +23,7 @@ public class Profile extends PanacheEntityBase {
     private String description;
 
     @Column(name = "deliveryTime", nullable = true)
-    private int delivery_Time;
+    private int deliveryTime;
     private String equipment;
     private String experience;
     private Double price;
@@ -42,7 +42,7 @@ public class Profile extends PanacheEntityBase {
 
     public Profile(String auth0Id, int delivery_Time, Double price, boolean sellerProfile) {
         this.auth0Id = auth0Id;
-        this.delivery_Time = delivery_Time;
+        this.deliveryTime = delivery_Time;
         this.price = price;
         this.sellerProfile = sellerProfile;
     }
@@ -53,7 +53,7 @@ public class Profile extends PanacheEntityBase {
         this.profileId = profileId;
         this.name = name;
         this.description = description;
-        this.delivery_Time = delivery_Time;
+        this.deliveryTime = delivery_Time;
         this.equipment = equipment;
         this.experience = experience;
         this.price = price;
@@ -75,7 +75,7 @@ public class Profile extends PanacheEntityBase {
     }
 
     public int getDelivery_Time() {
-        return delivery_Time;
+        return deliveryTime;
     }
 
     public boolean getSellerProfile() {
@@ -112,7 +112,7 @@ public class Profile extends PanacheEntityBase {
     }
 
     public void setDelivery_Time(int delivery_Time) {
-        this.delivery_Time = delivery_Time;
+        this.deliveryTime = delivery_Time;
     }
 
     public void setequipment(String equipment) {
