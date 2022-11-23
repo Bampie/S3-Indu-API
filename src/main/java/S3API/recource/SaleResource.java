@@ -20,7 +20,7 @@ public class SaleResource {
     @Path("/profileId/{id}")
     @GET
     public List<Sale> allSalesByProfileId(UUID id) {
-        return saleService.GetAllSalesByProfileId(id);
+        return saleService.getAllSalesByProfileId(id);
     }
 
     @POST

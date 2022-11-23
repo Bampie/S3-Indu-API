@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 @Tag("integration")
-public class ProfileResourceTest {
+class ProfileResourceTest {
     @Test
     void testAddProfile() {
         given()

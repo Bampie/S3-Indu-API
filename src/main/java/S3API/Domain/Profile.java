@@ -32,9 +32,7 @@ public class Profile extends PanacheEntityBase {
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Sale> sales;
 
-    public UUID getId() {
-        return profileId;
-    }
+    
 
     // constructoren:
     public Profile() {
@@ -62,10 +60,10 @@ public class Profile extends PanacheEntityBase {
     }
 
     // getter:
-    public UUID getProfileId() {
+    public UUID getId() {
         return profileId;
     }
-
+    
     public String getName() {
         return name;
     }

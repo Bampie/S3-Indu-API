@@ -19,14 +19,12 @@ public class SaleService {
         return sale;
     }
 
-    public List<Sale> GetAllSalesByProfileId(UUID id) {
-        List<Sale> saleList = saleRepository.find("profile_profileuuid", id).list();
-        return saleList;
+    public List<Sale> getAllSalesByProfileId(UUID id) {
+        return saleRepository.find("profile_profileuuid", id).list();
     }
 
     public Sale getSaleById(UUID id) {
-        Sale sale = saleRepository.findById(id);
-        return sale;
+        return saleRepository.findById(id);
     }
 
     public void deleteSale(UUID id) {

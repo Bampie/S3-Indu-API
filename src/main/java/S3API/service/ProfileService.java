@@ -34,8 +34,7 @@ public class ProfileService {
     }
 
     public Profile getProfileById(String id) {
-        Profile profile = profileRepository.find("auth0Id", id).firstResult();
-        return profile;
+        return profileRepository.find("auth0Id", id).firstResult();
     }
 
     public void deleteProfile(String id) {
