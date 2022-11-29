@@ -29,6 +29,16 @@ class ProfileResourceTest {
     }
 
     @Test
+    void testAllProfiles2() {
+        given()
+                .when()
+                .get("/api/profiles")
+                .then()
+                .statusCode(200)
+                .equals("");
+    }
+
+    @Test
     void testCheckForIdGoodId() {
         given()
                 .when().get("/api/profiles/check/auth0|634e54f55bdae0d184bedc37")
@@ -44,11 +54,11 @@ class ProfileResourceTest {
                 .equals(false);
     }
 
-    // @Test
-    // void testDeleteProfileUnknownID() {
-    // given()
-    // .when().delete("/api/profiles/delete/thisIsAUnknownId")
-    // .then()
-    // .statusCode(403);
-    // }
+    @Test
+    void testDeleteProfileUnknownID() {
+        given()
+                .when().delete("/api/profiles/delete/auth0|634e54f55bdae0d184bedc37")
+                .then()
+                .statusCode(200);
+    }
 }
