@@ -5,11 +5,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 
-import static io.restassured.RestAssured.given;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.is;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -70,14 +65,14 @@ class ProfileResourceTest {
         given()
                 .when().get("/api/profiles/check/auth0&up4f51ll5bgfe6d004bed")
                 .then()
-                .equals(false);
+                .body("isIdFound", is(false));
     }
 
-    // @Test
-    // void testDeleteProfileUnknownID() {
-    // given()
-    // .when().delete("/api/profiles/delete/thisIsAUnknownId")
-    // .then()
-    // .statusCode(403);
-    // }
+    @Test
+    void testDeleteProfileUnknownID() {
+        given()
+                .when().delete("/api/profiles/delete/thisIsAUnknownId")
+                .then()
+                .statusCode(500);
+    }
 }
