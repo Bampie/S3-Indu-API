@@ -15,6 +15,7 @@ public class ProfileService {
 
     @Inject
     ProfileRepository profileRepository;
+    String idColumn = "auth0Id";
 
     public List<Profile> allProfiles() {
         List<Profile> allProfiles = profileRepository.listAll();

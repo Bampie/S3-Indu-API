@@ -2,6 +2,7 @@ package S3API.recource;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -50,9 +51,8 @@ public class ProfileResource {
 
     @Path("/{id}")
     @GET
-    public Profile GetProfileById(String id) {
-        Profile profile = profileService.getProfileById(id);
-        return profile;
+    public Profile getProfileById(String id) {
+        return profileService.getProfileById(id);
     }
 
     @Path("/check/{id}")
@@ -69,5 +69,24 @@ public class ProfileResource {
     @Transactional
     public void deleteProfile(String id) {
         profileService.deleteProfile(id);
+    }
+
+    @Path("/counting")
+    @GET
+    @Transactional
+    public boolean asyncTest() {
+        boolean q = false;
+        for (int i = 1; i <= 20; i++) {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+            }
+            if (i == 20) {
+                q = true;
+                return q;
+            }
+        }
+        return q;
     }
 }
