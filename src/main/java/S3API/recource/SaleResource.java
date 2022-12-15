@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import S3API.domain.Sale;
 import S3API.service.SaleService;
@@ -24,6 +28,7 @@ public class SaleResource {
     }
 
     @POST
+    @Transactional
     public void addSale(Sale sale) {
         saleService.addSale(sale);
     }

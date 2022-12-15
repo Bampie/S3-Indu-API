@@ -12,19 +12,42 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 public class Sale extends PanacheEntityBase {
+
     @Id
     @GeneratedValue(generator = "UUID")
-    private UUID salesUuid;
+    private UUID id;
     private String title;
     private String description;
     private double price;
     private Date aankoopDatum;
+    private String costumerNote;
 
     @ManyToOne
     private Profile profile;
 
+    public Sale() {
+    }
+
+    public Sale(String title, String description, double price, Date aankoopDatum, String costumerNote,
+            Profile profile) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.aankoopDatum = aankoopDatum;
+        this.costumerNote = costumerNote;
+        this.profile = profile;
+    }
+
+    public void setCostumerNote(String costumerNote) {
+        this.costumerNote = costumerNote;
+    }
+
+    public String getCostumerNote() {
+        return costumerNote;
+    }
+
     public UUID getId() {
-        return salesUuid;
+        return id;
     }
 
     public String getTitle() {
