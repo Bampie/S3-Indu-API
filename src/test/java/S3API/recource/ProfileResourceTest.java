@@ -38,17 +38,15 @@ class ProfileResourceTest {
                 .then().statusCode(200).extract().asString();
         assertThat(profile)
                 .isNotNull();
+));
     }
-
-    // in this test there is a wrong unknown Id provided, if correct it returns a
-    // 204 code.
-    // which means that there call is made but no result back.
     @Test
     void testProfilesByIdWrongId() {
 
         given()
                 .when().get("/api/profiles/auth0|222e54f55bdae0d184bedc44")
                 .then().statusCode(204);
+
     }
 
     // these next two tests check if the check profile is true or false.
@@ -75,4 +73,5 @@ class ProfileResourceTest {
                 .then()
                 .statusCode(500);
     }
+
 }
