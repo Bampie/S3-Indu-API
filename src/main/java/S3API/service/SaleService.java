@@ -14,9 +14,9 @@ public class SaleService {
     @Inject
     S3API.repository.SaleRepository saleRepository;
 
-    public Sale addSale(Sale sale) {
+    public void addSale(Sale sale) {
         saleRepository.persist(sale);
-        return sale;
+
     }
 
     public List<Sale> getAllSalesByProfileId(UUID id) {

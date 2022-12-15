@@ -3,26 +3,33 @@ package S3API.domain;
 import java.sql.Date;
 import java.util.UUID;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
+@ApplicationScoped
 public class Sale extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    private UUID salesUuid;
+    private UUID id;
     private String title;
     private String description;
     private double price;
     private Date aankoopDatum;
     private String costumerNote;
+
     @ManyToOne
-    private Profile profile;
+    public Profile profile;
 
     public Sale() {
     }
@@ -37,10 +44,6 @@ public class Sale extends PanacheEntityBase {
         this.profile = profile;
     }
 
-    public Profile getProfile() {
-        return profile;
-    }
-
     public void setCostumerNote(String costumerNote) {
         this.costumerNote = costumerNote;
     }
@@ -50,7 +53,7 @@ public class Sale extends PanacheEntityBase {
     }
 
     public UUID getId() {
-        return salesUuid;
+        return id;
     }
 
     public String getTitle() {

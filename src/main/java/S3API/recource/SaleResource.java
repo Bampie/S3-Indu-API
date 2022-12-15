@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 
 import S3API.domain.Sale;
 import S3API.service.SaleService;
-import io.quarkus.logging.Log;
 
 @Path("/api/sale")
 public class SaleResource {
@@ -32,10 +31,9 @@ public class SaleResource {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void addSale(Sale sale) {
-        Log.info(sale.getProfile());
-
+    public Sale addSale(Sale sale) {
         saleService.addSale(sale);
+        return sale;
     }
 
     @Path("/findById/{id}")
