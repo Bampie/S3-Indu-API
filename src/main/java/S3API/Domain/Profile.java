@@ -3,7 +3,6 @@ package S3API.domain;
 import java.util.List;
 import java.util.UUID;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.OneToMany;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
-@ApplicationScoped
 public class Profile extends PanacheEntityBase {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -32,7 +30,7 @@ public class Profile extends PanacheEntityBase {
     private boolean sellerProfile;
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    public List<Sale> sales;
+    private List<Sale> sales;
 
     // constructoren:
     public Profile() {

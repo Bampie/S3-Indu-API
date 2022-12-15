@@ -29,11 +29,8 @@ public class SaleResource {
 
     @POST
     @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Sale addSale(Sale sale) {
+    public void addSale(Sale sale) {
         saleService.addSale(sale);
-        return sale;
     }
 
     @Path("/findById/{id}")

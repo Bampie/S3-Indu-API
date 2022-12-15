@@ -3,20 +3,14 @@ package S3API.domain;
 import java.sql.Date;
 import java.util.UUID;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
-@ApplicationScoped
 public class Sale extends PanacheEntityBase {
 
     @Id
@@ -29,7 +23,7 @@ public class Sale extends PanacheEntityBase {
     private String costumerNote;
 
     @ManyToOne
-    public Profile profile;
+    private Profile profile;
 
     public Sale() {
     }
