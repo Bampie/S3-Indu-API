@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +25,7 @@ public class SaleResource {
     }
 
     @POST
+    @Transactional
     public void addSale(Sale sale) {
         saleService.addSale(sale);
     }
