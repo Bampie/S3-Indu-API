@@ -37,7 +37,7 @@ public class ProfileResource {
     @Consumes({ MediaType.APPLICATION_JSON })
     public Response addProfile(Profile profile) {
         Profile profileWihtId = profileService.addProfile(profile);
-        return Response.created(URI.create("/api/profiles/" + profileWihtId.getId())).build();
+        return Response.created(URI.create("/api/profiles/" + profileWihtId.getProfileId())).build();
     }
 
     @Path("/edit")

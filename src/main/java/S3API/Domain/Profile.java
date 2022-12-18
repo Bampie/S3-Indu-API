@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
@@ -30,6 +32,7 @@ public class Profile extends PanacheEntityBase {
     private boolean sellerProfile;
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Sale> sales;
 
     // constructoren:
@@ -58,7 +61,7 @@ public class Profile extends PanacheEntityBase {
     }
 
     // getter:
-    public UUID getId() {
+    public UUID getProfileId() {
         return profileId;
     }
 

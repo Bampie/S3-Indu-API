@@ -4,9 +4,12 @@ import java.sql.Date;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
@@ -22,8 +25,13 @@ public class Sale extends PanacheEntityBase {
     private Date aankoopDatum;
     private String costumerNote;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private Profile profile;
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
 
     public Sale() {
     }
@@ -66,7 +74,7 @@ public class Sale extends PanacheEntityBase {
         this.description = description;
     }
 
-    public Number getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -80,5 +88,9 @@ public class Sale extends PanacheEntityBase {
 
     public void setAankoopDatum(Date aankoopDatum2) {
         aankoopDatum = aankoopDatum2;
+    }
+
+    public Profile getProfile() {
+        return profile;
     }
 }
