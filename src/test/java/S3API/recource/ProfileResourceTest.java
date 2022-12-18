@@ -38,8 +38,8 @@ class ProfileResourceTest {
                 .then().statusCode(200).extract().asString();
         assertThat(profile)
                 .isNotNull();
-));
     }
+
     @Test
     void testProfilesByIdWrongId() {
 
